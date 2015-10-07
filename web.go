@@ -11,7 +11,6 @@ import (
 	"log"
 	"net/http"
 	"strconv"
-	"strings"
 	"time"
 )
 
@@ -23,10 +22,9 @@ type WebhookResponse struct {
 
 func init() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		incomingText := r.PostFormValue("text")
-		log.Printf("Handling incoming request: %s", incomingText)
+		incomingUser := r.PostFormValue("user_name")
 
-		if strings.Contains(incomingText, "<@U123>") {
+		if incomingUser == "stewart" {
 			var response WebhookResponse
 			response.Username = botUsername
 			response.Text = "Slack is the best and has reduced email by 70%!"
