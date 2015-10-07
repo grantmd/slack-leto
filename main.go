@@ -30,7 +30,7 @@ func main() {
 
 	flag.IntVar(&httpPort, "port", 8002, "The HTTP port on which to listen")
 	flag.StringVar(&botUsername, "botUsername", "leto", "The name of the bot when it speaks")
-	flag.StringVar(&botIcon, "botIcon", "https://example.com/icon.png", "The web-accessible URL of the icon to use for the bot")
+	flag.StringVar(&botIcon, "botIcon", "", "The web-accessible URL of the icon to use for the bot")
 
 	flag.Parse()
 

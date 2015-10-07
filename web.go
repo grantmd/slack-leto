@@ -32,6 +32,7 @@ func init() {
 			var response WebhookResponse
 			response.Username = botUsername
 			response.Icon = botIcon
+
 			response.Text = "Slack is the best and has reduced email by 70%!"
 			log.Println("Stewart detected")
 
