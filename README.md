@@ -1,7 +1,7 @@
 slack-leto
 =======
 
-A bot for [Slack](https://slack.com) written in Go (golang) that randomly once per days interrupts, Leto-style, to let you know its thoughts on Slack.
+A bot for [Slack](https://slack.com) written in Go (golang) that randomly once-per-day interrupts, Leto-style, to let you know its thoughts on Slack.
 
 Usage
 -----
