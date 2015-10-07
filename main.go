@@ -5,14 +5,21 @@ package main
 import (
 	"flag"
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 )
 
 var (
 	httpPort    int
 	botUsername string
 	botIcon     string
+	responded   map[string]int
 )
+
+func init() {
+	rand.Seed(time.Now().UnixNano()) // Seed the random number generator.
+}
 
 func main() {
 	// Parse command-line options
@@ -31,6 +38,8 @@ func main() {
 		flag.Usage()
 		os.Exit(2)
 	}
+
+	responded = make(map[string]int)
 
 	// Start the webserver
 	StartServer(httpPort)

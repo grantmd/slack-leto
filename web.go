@@ -26,19 +26,28 @@ func init() {
 		incomingUser := r.PostFormValue("user_name")
 
 		if incomingUser == "stewart" {
+			// Check if we've responded today
+
+			// Respond!
 			var response WebhookResponse
 			response.Username = botUsername
 			response.Icon = botIcon
 			response.Text = "Slack is the best and has reduced email by 70%!"
-			log.Printf("Sending response: %s", response.Text)
+			log.Println("Stewart detected")
 
 			b, err := json.Marshal(response)
 			if err != nil {
 				log.Fatal(err)
 			}
 
-			time.Sleep(1 * time.Second)
-			w.Write(b)
+			key := time.Now().Format("01-02-2006")
+			responded[key] += 1
+
+			if responded[key] == 1 {
+				log.Printf("Sending response: %s", response.Text)
+				time.Sleep(1 * time.Second)
+				w.Write(b)
+			}
 		}
 	})
 }
