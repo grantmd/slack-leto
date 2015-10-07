@@ -18,6 +18,7 @@ type WebhookResponse struct {
 	Username string `json:"username"`
 	Text     string `json:"text"`
 	Channel  string `json:"channel"`
+	Icon     string `json:"icon_url"`
 }
 
 func init() {
@@ -27,6 +28,7 @@ func init() {
 		if incomingUser == "stewart" {
 			var response WebhookResponse
 			response.Username = botUsername
+			response.Icon = botIcon
 			response.Text = "Slack is the best and has reduced email by 70%!"
 			log.Printf("Sending response: %s", response.Text)
 
